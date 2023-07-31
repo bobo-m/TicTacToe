@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Bob Murmu">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="./assets/style.css">
+    <script src="https://kit.fontawesome.com/a23965119a.js" crossorigin="anonymous"></script>
+    <script src="./assets/app.js" defer></script>
+    <title>Tic Tac Toe</title>
+</head>
+<body>
+    <section class="start-game">
+        <div class="start-game-container">
+            <div class="logo">
+                <svg class="logo-icon logo-icon--x" id="icon-x" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.002 1.147 32 18.145 48.998 1.147a3 3 0 0 1 4.243 0l9.612 9.612a3 3 0 0 1 0 4.243L45.855 32l16.998 16.998a3 3 0 0 1 0 4.243l-9.612 9.612a3 3 0 0 1-4.243 0L32 45.855 15.002 62.853a3 3 0 0 1-4.243 0L1.147 53.24a3 3 0 0 1 0-4.243L18.145 32 1.147 15.002a3 3 0 0 1 0-4.243l9.612-9.612a3 3 0 0 1 4.243 0Z" fill-rule="evenodd"/>
+                </svg>
+                <svg class="logo-icon logo-icon--o" id="icon-o" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M32 0c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C14.327 64 0 49.673 0 32 0 14.327 14.327 0 32 0Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z" />
+                </svg>
+            </div>
+            <div class="start-game--choices">
+                <h4 class="start-game--heading">Pick player 1's mark</h3>
+                <div class="choices-toggle">
+                    <div class="choices-x choices-container" >
+                        <svg class="choices" id="icon-x" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15.002 1.147 32 18.145 48.998 1.147a3 3 0 0 1 4.243 0l9.612 9.612a3 3 0 0 1 0 4.243L45.855 32l16.998 16.998a3 3 0 0 1 0 4.243l-9.612 9.612a3 3 0 0 1-4.243 0L32 45.855 15.002 62.853a3 3 0 0 1-4.243 0L1.147 53.24a3 3 0 0 1 0-4.243L18.145 32 1.147 15.002a3 3 0 0 1 0-4.243l9.612-9.612a3 3 0 0 1 4.243 0Z" fill-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <div class="choices-o choices-container">
+                        <svg class="choices" id="icon-o" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M32 0c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C14.327 64 0 49.673 0 32 0 14.327 14.327 0 32 0Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z" />
+                        </svg>
+                    </div>                    
+                </div>
+                <h5 class="start-game--footer">Remember: x goes first</h4>
+            </div>
+            <div class="start-game--modes">
+                <button id="vs-cpu" class="btn-cpu">new game (vs cpu)</button>
+                <button id="vs-player" class="btn-player">new game (vs player)</button>             
+            </div>
+        </div>
+    </section>
+    
+    <section class="game-active hidden">
+        <div class="game-active--container">
+            <div class="game-active--header">
+                <div class="logo">
+                    <svg class="logo-icon logo-icon--x" id="icon-x" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15.002 1.147 32 18.145 48.998 1.147a3 3 0 0 1 4.243 0l9.612 9.612a3 3 0 0 1 0 4.243L45.855 32l16.998 16.998a3 3 0 0 1 0 4.243l-9.612 9.612a3 3 0 0 1-4.243 0L32 45.855 15.002 62.853a3 3 0 0 1-4.243 0L1.147 53.24a3 3 0 0 1 0-4.243L18.145 32 1.147 15.002a3 3 0 0 1 0-4.243l9.612-9.612a3 3 0 0 1 4.243 0Z" fill-rule="evenodd"/>
+                    </svg>
+                    <svg class="logo-icon logo-icon--o" id="icon-o" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M32 0c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C14.327 64 0 49.673 0 32 0 14.327 14.327 0 32 0Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z" />
+                    </svg>
+                </div>
+    
+                <div class="current-turn">
+                    <h4 class="current-turn--text">TURN</h4>
+                </div>
+    
+                <div class="restart-game">
+                    <button class="restart-game--button">
+                        <i class="fa-solid fa-rotate-right"></i>
+                    </button>
+                </div>
+            </div>
+    
+            <div class="cell-container">
+                <div cell-index="0" class="cell"></div>
+                <div cell-index="1" class="cell"></div>
+                <div cell-index="2" class="cell"></div>
+                <div cell-index="3" class="cell"></div>
+                <div cell-index="4" class="cell"></div>
+                <div cell-index="5" class="cell"></div>
+                <div cell-index="6" class="cell"></div>
+                <div cell-index="7" class="cell"></div>
+                <div cell-index="8" class="cell"></div>
+            </div>
+    
+            <div class="score">
+                <div class="score-cell x-score">
+                    <p>X (P1)</p>
+                    <p id="x-score">0</p>
+                </div>
+                <div class="score-cell ties-score">
+                    <p>TIES</p>
+                    <p id="ties-score">0</p>
+                </div>
+                <div class="score-cell o-score">
+                    <p>O (P2)</p>
+                    <p id="o-score">0</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="round-results" class="round-results hidden">
+        <div class="results-message">
+            <p class="winner"></p>
+            <div class="winner-message"></div>
+            <div class="results--button">
+                <a href="index.html"><button class="quit">quit</button></a>
+                <button class="next-round">next round</button>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
