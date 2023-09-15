@@ -40,8 +40,8 @@
                 <h5 class="start-game--footer">Remember: x goes first</h4>
             </div>
             <div class="start-game--modes">
-                <button id="vs-cpu" class="btn-cpu">new game (vs cpu)</button>
-                <button id="vs-player" class="btn-player">new game (vs player)</button>             
+                <button id="vs-cpu" class="btn-cpu" disabled autocomplete="off">new game (vs cpu)</button>
+                <button id="vs-player" class="btn-player" disabled autocomplete="off">new game (vs player)</button>             
             </div>
         </div>
     </section>
@@ -50,15 +50,18 @@
         <div class="game-active--container">
             <div class="game-active--header">
                 <div class="logo">
-                    <svg class="logo-icon logo-icon--x" id="icon-x" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15.002 1.147 32 18.145 48.998 1.147a3 3 0 0 1 4.243 0l9.612 9.612a3 3 0 0 1 0 4.243L45.855 32l16.998 16.998a3 3 0 0 1 0 4.243l-9.612 9.612a3 3 0 0 1-4.243 0L32 45.855 15.002 62.853a3 3 0 0 1-4.243 0L1.147 53.24a3 3 0 0 1 0-4.243L18.145 32 1.147 15.002a3 3 0 0 1 0-4.243l9.612-9.612a3 3 0 0 1 4.243 0Z" fill-rule="evenodd"/>
-                    </svg>
-                    <svg class="logo-icon logo-icon--o" id="icon-o" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M32 0c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C14.327 64 0 49.673 0 32 0 14.327 14.327 0 32 0Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z" />
-                    </svg>
+                    <a href="index.html">
+                        <svg class="logo-icon logo-icon--x" id="icon-x" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15.002 1.147 32 18.145 48.998 1.147a3 3 0 0 1 4.243 0l9.612 9.612a3 3 0 0 1 0 4.243L45.855 32l16.998 16.998a3 3 0 0 1 0 4.243l-9.612 9.612a3 3 0 0 1-4.243 0L32 45.855 15.002 62.853a3 3 0 0 1-4.243 0L1.147 53.24a3 3 0 0 1 0-4.243L18.145 32 1.147 15.002a3 3 0 0 1 0-4.243l9.612-9.612a3 3 0 0 1 4.243 0Z" fill-rule="evenodd"/>
+                        </svg>
+                        <svg class="logo-icon logo-icon--o" id="icon-o" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M32 0c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C14.327 64 0 49.673 0 32 0 14.327 14.327 0 32 0Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z" />
+                        </svg>
+                    </a>
                 </div>
     
                 <div class="current-turn">
+                    <img class="current-turn--img" src="./assets/images/icon-x.svg">
                     <h4 class="current-turn--text">TURN</h4>
                 </div>
     
@@ -69,7 +72,7 @@
                 </div>
             </div>
     
-            <div class="cell-container x-hover">
+            <div id="cell-container" class="x-hover">
                 <div cell-index="0" class="cell"></div>
                 <div cell-index="1" class="cell"></div>
                 <div cell-index="2" class="cell"></div>
@@ -83,7 +86,7 @@
     
             <div class="score">
                 <div class="score-cell x-score">
-                    <p class="player-x">X (P1)</p>
+                    <p class="player-x">X </p>
                     <p id="x-score">0</p>
                 </div>
                 <div class="score-cell ties-score">
@@ -91,7 +94,7 @@
                     <p id="ties-score">0</p>
                 </div>
                 <div class="score-cell o-score">
-                    <p class="player-o">O (P2)</p>
+                    <p class="player-o">O </p>
                     <p id="o-score">0</p>
                 </div>
             </div>
@@ -100,7 +103,10 @@
     <section id="round-results" class="round-results hidden">
         <div class="results-message">
             <p class="winner"></p>
-            <div class="winner-message"></div>
+            <div class="winner-message">
+                <img>
+                <h3></h3>
+            </div>
             <div class="results--button">
                 <a href="index.html"><button class="quit">quit</button></a>
                 <button class="next-round">next round</button>

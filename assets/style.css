@@ -162,9 +162,14 @@ body{
 }
 /*current player*/
 .current-turn{
+    display: flex;
     background-color: var(--clr-tepagreen);
     border-radius: var(--br-normal);
     justify-content: center;
+}
+.current-turn--img{
+    width: 1rem;
+    margin-right: 0.5rem;
 }
 .current-turn--text{
     color: var(--clr-gray);
@@ -182,7 +187,7 @@ body{
     border-radius: var(--br-sharp);
     cursor: pointer;
 }
-.cell-container{
+#cell-container{
     display: grid;
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: repeat(3,1fr);
@@ -220,6 +225,7 @@ body{
 }
 .score-cell p{
     margin: 0;
+    text-transform: uppercase;
 }
 .x-score{
     background-color: var(--clr-blue);
@@ -254,6 +260,7 @@ body{
 }
 .winner{
     font-weight: 700;
+    text-transform: uppercase;
 }
 .winner-message{
     display: flex;
@@ -267,6 +274,7 @@ body{
 .winner-message img{
     width:3rem;
     margin-right: 1rem;
+    display: block;
 }
 .results-message button{
     font-family: var(--ff-primary);
@@ -307,6 +315,56 @@ body{
     background-color: var(--clr-blue);
     background-image: url(images/icon-x-default.svg);
 }
+.played{
+    pointer-events: none;
+}
 .hidden{
     display: none;
+}
+@media  screen and (max-width: 480px) {
+    .start-game-container{
+        width: 90vw;
+    }
+    .start-game--choices{
+        height: 10rem;
+    }
+    .choices-toggle{
+        height: 5rem;
+        align-items: center;
+    }
+    .choices-container{
+        height:100%;
+    }
+    .start-game--modes button{
+        height: 4rem;
+        padding: 0 8rem;
+    }
+
+    .game-active--container{
+        width: 90vw;
+    }
+    #cell-container{
+        min-height:90vw;
+    }
+}
+@media screen and (min-width:480px) and (max-width:768px){
+    .start-game-container{
+        width: 50vw;
+    }
+    .choices-toggle{
+        height: 3rem;
+    }
+    .choices-container{
+        height: 100%;
+    }
+    .start-game--modes button{
+        height: 3rem;
+        margin-bottom: 1.5rem;
+    }
+    .game-active--container{
+        width: 50vw;
+    }
+    #cell-container{
+        min-height:50vw;
+    }
 }
