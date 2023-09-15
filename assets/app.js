@@ -322,7 +322,7 @@ function changeCellHover(){
 
 // Styles the winning sequence whenever there is a win
 function handleWinStyling(){
-    for(const seq in sequence){
+    for(const seq of sequence){
         cells[seq].classList.add(`win-sequence-${currPlayer}`);
     }
 }
